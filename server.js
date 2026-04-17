@@ -47,7 +47,11 @@ app.post("/update", async (req, res) => {
   res.send("Updated");
 });
 
-app.listen(5000, () => console.log("Server running"));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log("Server running on port " + PORT);
+});
 
 const Menu = mongoose.model("Menu", {
   name: String,
